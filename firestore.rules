@@ -1,0 +1,10 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // firebaseの認証ユーザーかどうか
+    function isAnyAuthenticated() {
+      return request.auth != null;
+    }
+  }
+}
