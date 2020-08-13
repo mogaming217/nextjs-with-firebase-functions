@@ -1,8 +1,7 @@
 import { NextPage } from 'next'
-import { App } from 'components/App'
 
 const RootPage: NextPage = () => {
-  return <App>top page</App>
+  return <div>top page</div>
 }
 
 export default RootPage
