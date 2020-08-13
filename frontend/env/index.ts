@@ -1,6 +1,6 @@
 interface ServerEnv {
   host: string
-  firebase: object
+  firebase: any
 }
 
 // ブラウザから触ると落ちるようにしている

@@ -10,9 +10,7 @@ export default function (req: Request, res: Response, next: NextFunction) {
   if (process.env.USE_BASIC_AUTH !== 'true') return next()
 
   const user = auth(req)
-  if (
-    !(user && credentials[user.name] && credentials[user.name] === user.pass)
-  ) {
+  if (!(user && credentials[user.name] && credentials[user.name] === user.pass)) {
     res.setHeader('WWW-Authenticate', 'Basic realm="example"')
     return res.status(401).send()
   }
