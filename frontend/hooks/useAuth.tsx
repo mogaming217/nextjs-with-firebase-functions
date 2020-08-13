@@ -1,13 +1,19 @@
-import { useState, useEffect, createContext, ReactNode, useContext } from "react"
-import { auth } from "lib/firebase/client"
+import {
+  useState,
+  useEffect,
+  createContext,
+  ReactNode,
+  useContext,
+} from 'react'
+import { auth } from 'lib/firebase/client'
 import firebase from 'firebase/app'
-import { User, Me } from "model/user"
+import { User, Me } from 'model/user'
 
 type UseAuthErrorCode = 'unexpected'
 
 type AuthReturnType = {
-  loading: boolean,
-  user?: User,
+  loading: boolean
+  user?: User
   error?: UseAuthErrorCode
 }
 
@@ -21,10 +27,10 @@ const _useAuth = (): AuthReturnType => {
     let cancel = false
 
     const unsubscribe = auth.onAuthStateChanged(
-      async user => {
+      async (user) => {
         if (cancel) return
         if (user) {
-          setAuth({ loading: false, user: convertUser(user)})
+          setAuth({ loading: false, user: convertUser(user) })
           return
         }
 
@@ -41,7 +47,7 @@ const _useAuth = (): AuthReturnType => {
           setAuth({ loading: false, error: 'unexpected' })
         }
       },
-      error => {
+      (error) => {
         if (cancel) return
         console.error(error)
         // FIXME: 適切なエラーに変換
@@ -61,7 +67,7 @@ export const AuthContext = createContext<AuthReturnType>({ loading: true })
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const state = _useAuth()
-  return <AuthContext.Provider value={ state } >{children}</AuthContext.Provider>
+  return <AuthContext.Provider value={state}>{children}</AuthContext.Provider>
 }
 
 export const useAuth = () => {

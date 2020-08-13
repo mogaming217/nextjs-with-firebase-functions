@@ -2,7 +2,7 @@ import React from 'react'
 import { GlobalStyle } from 'styles/Global'
 import { AuthProvider } from 'hooks/useAuth'
 import styled from 'styled-components'
-import Head from "next/head"
+import Head from 'next/head'
 import NProgress from 'nextjs-progressbar'
 import { DefaultSeo } from 'components/seo'
 
@@ -14,9 +14,7 @@ const AppContainer = styled.div`
 `
 
 const Provider = ({ children }: { children: React.ReactNode }) => (
-  <AuthProvider>
-    {children}
-  </AuthProvider>
+  <AuthProvider>{children}</AuthProvider>
 )
 
 export const App: React.FC = ({ children }) => {
@@ -27,15 +25,9 @@ export const App: React.FC = ({ children }) => {
       </Head>
       <DefaultSeo />
 
-      <NProgress
-        color={ 'blue' }
-        height="1"
-        options={{ showSpinner: false }}
-      />
+      <NProgress color={'blue'} height="1" options={{ showSpinner: false }} />
       <GlobalStyle />
-      <AppContainer>
-        {children}
-      </AppContainer>
+      <AppContainer>{children}</AppContainer>
     </Provider>
   )
 }
