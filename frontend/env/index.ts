@@ -1,6 +1,6 @@
 interface ServerEnv {
-  host: string,
-  firebase: object,
+  host: string
+  firebase: any
 }
 
 // ブラウザから触ると落ちるようにしている
@@ -17,13 +17,13 @@ export const serverEnv: ServerEnv = (() => {
       auth_uri: process.env.AUTH_URI,
       token_uri: process.env.TOKEN_URI,
       auth_provider_x509_cert_url: process.env.AUTH_PROVIDER_URL,
-      client_x509_cert_url: process.env.CLIENT_CERT_URL
-    }
+      client_x509_cert_url: process.env.CLIENT_CERT_URL,
+    },
   } as ServerEnv
 })()
 
 interface PublicEnv {
-  host: string,
+  host: string
 }
 
 export const publicEnv: PublicEnv = {

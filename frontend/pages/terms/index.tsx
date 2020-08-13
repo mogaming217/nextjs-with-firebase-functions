@@ -1,12 +1,8 @@
-import { NextPage } from "next";
-import { App } from "components/App";
+import React from 'react'
+import { NextPage } from 'next'
 
 const TermsPage: NextPage = () => {
-  return (
-    <App>
-      TODO
-    </App>
-  )
+  return <>TODO</>
 }
 
 export default TermsPage

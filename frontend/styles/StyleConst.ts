@@ -16,11 +16,23 @@ const FONT_WEIGHT = {
 } as const
 
 const COLOR = {
+  PRIMARY: '#348ceb',
+  LABEL: '#2b2b2b',
+  PLACEHOLDER: '#c9c9c9',
 } as const
 
+const WIDTH = {
+  CONTENT_MAX: 768,
+} as const
+
+const HEIGHT = {
+  HEADER: 44,
+} as const
 
 export default {
   FONT,
   FONT_WEIGHT,
   COLOR,
+  WIDTH,
+  HEIGHT,
 }
